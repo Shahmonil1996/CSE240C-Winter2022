@@ -17,7 +17,7 @@ MYRANDOM ()
   return (RANDSEED & 127);
 }
 
-#define LOGMULTSIZE  (-2)	//to test other sizes of predictors:  +1 doubles the size of MMA table and FNL tables
+#define LOGMULTSIZE  (0)	//to test other sizes of predictors:  +1 doubles the size of MMA table and FNL tables
 
 
 #define MMA_FILT_SIZE 24	// 24 entries in the MMA FILTER

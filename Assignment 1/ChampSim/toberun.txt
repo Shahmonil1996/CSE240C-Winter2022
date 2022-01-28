@@ -1,8 +1,0 @@
-hashed_perceptron-D_JOLT-quarter_next_line-spp_dev-no-lru-1core
-hashed_perceptron-D_JOLT-half_size_next_line-spp_dev-no-lru-1core
-hashed_perceptron-D_JOLT-double_next_line-spp_dev-no-lru-1core
-hashed_perceptron-D_JOLT-quadruple_next_line-spp_dev-no-lru-1core
-hashed_perceptron-FNL-MMA280520-4kresetnext_line-spp_dev-no-lru-1core
-hashed_perceptron-FNL-MMA280520-2kresetnext_line-spp_dev-no-lru-1core
-hashed_perceptron-FNL-MMA280520-16kresetnext_line-spp_dev-no-lru-1core
-hashed_perceptron-FNL-MMA280520-32kresetnext_line-spp_dev-no-lru-1core

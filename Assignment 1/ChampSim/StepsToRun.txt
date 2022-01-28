@@ -1,0 +1,68 @@
+********************************************************************************
+This Text file includes change that were incorporated to get the results
+********************************************************************************
+I haven't used the scripts that come with Champsim Setup as they didn't work for 
+me on my Linux Deployment...
+
+I used an Ubuntu Image And Mounted my local Path to the Docker Container.
+To setup the Ubuntu Image, I had to run these steps everytime.....
+
+apt-get update
+apt install vim
+apt install make
+apt install g++
+apt install wget
+
+ChampSim Setup and Winner Codes should be taken from Website... 
+https://research.ece.ncsu.edu/ipc/
+
+
+I updated the script that I used to run, its not a functional change, I just 
+removed the space on Line 2 in original file for the following scripts:
+-> build_champsim.sh => build_champsim_working.sh 
+-> run_champsim.sh   => run_champsim_working.sh 
+-> run_4core.sh      => run_4core_working.sh
+
+Baseline : Without Instruction Prefetcher
+Binary Run Command : bash build_champsim_working.sh hashed_perceptron no next_line spp_dev no lru 1
+
+DJOLT :
+Binary Run Command : bash build_champsim_working.sh hashed_perceptron D_JOLT next_line spp_dev no lru 1
+-> Design Space Exploration
+	--> Update LongRangePrefetcherDistance to 10,20,25,30 keeping other things constant
+	--> Update ShortRangePrefetcherDistance to 2,6,8,10 keeping other things constant
+	--> Updated TrainingTableSize and MonitoringTableSize to 8,32,48,64 and ketp other things constant
+
+-> First Order to get Quarter, Half, Double and Quadruple Hardware budget fitting structure
+	--> Updated ShortRangePrefetcher_N_Sets to 512,1024,4096,8192  
+	--> Updated LongRangePrefetcher_N_Sets  to 256,512,2048,4096
+	--> Updated ExtraMissTable_N_Sets       to 64,128,512,1024
+	--> Additional change required for Signature bit to be 22 for Half and 21 for Quarter , no changes for other 
+
+FNL+ MMA: (There were two versions of the code on IPC website so I downloaded original code and modified the name
+of the file to be FNL-MMA.l1_pref)
+Binary Run Command :  bash build_champsim_working.sh hashed_perceptron FNL-MMA280520 next_line spp_dev no lru 1 (Updated Code)
+Binary Run Command :  bash build_champsim_working.sh hashed_perceptron FNL-MMA next_line spp_dev no lru 1       (Original Code)
+
+-> Design Space exploration
+	--> Updated MMA_FILT_SIZE to 10,15,20,30 keeping other things constant
+	--> Updated DISTAHEAD     to 10,20,25,30 keeping other things constant
+	--> Updated PERIODRESET   to 2048,4096,16384,32768 keeping other things constant
+
+-> First Order to get Quarter, Half, Double and Quadruple Hardware budget fitting structure
+	--> Updated LOGMULTSIZE to be -2,-1,1,2 for Quarter, Half, DOuble and Quadruple Sizes
+
+Traces used for Baseline Versions : All 50
+Traces used for Design Space Exploration and First Order Structure : 20
+Filename that has names of those 20 Traces : scripting/trace_name_trimmed.txt
+Traces are downloaded and stored in a Folder Called "Traces/ipc1_public"
+
+Scripts used to run the Traces in background : 
+-> all_night_script.sh
+-> all_night_script2.sh
+
+Script used to extract Data : 
+-> extract.sh
+
+Binaries were created first by changing the parameters in the prefetcher code and renaming them
+
