@@ -1,0 +1,3 @@
+../Traces/ipc1_public/server_031.champsimtrace.xz
+../Traces/ipc1_public/server_032.champsimtrace.xz 
+ 
